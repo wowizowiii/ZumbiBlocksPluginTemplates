@@ -51,7 +51,7 @@ For a more comprehensive guide on [installing BepInEx](https://docs.bepinex.dev/
 
 Much like BepInEx, installing the template is very simple.
 
-First, clone the repository or download the source code from Releases. If downloaded, extract the ZIP file.  
+First, [clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or [download the source code from Releases](https://github.com/nyawoi/ZumbiBlocks2PluginTemplate/releases). If downloaded, extract the ZIP file.  
 Be sure to move the folder somewhere safe where you know it won't be deleted or overwritten.
 
 Next, open the folder. Inside, you'll see two scripts: `install.sh` and `uninstall.sh`. Run `install.sh` to add the template to your list of .NET templates, and `uninstall.sh` to remove it.
