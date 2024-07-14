@@ -1,0 +1,33 @@
+﻿<!--
+    Zumbi Blocks 2 Plugin Template Configuration
+
+    The below properties can be used to customize your project build,
+    allowing custom install locations and helpful build tasks.
+    This allows you to share your project in a way that others can customize themselves.
+-->
+<Project>
+    <PropertyGroup>
+
+        <!--
+            Custom Zumbi Blocks 2 install locations go here:
+            Installed Steam on another drive? Have a depot download?
+            If so, this property is for you!
+            Set this property to your Zumbi Blocks 2 installation directory.
+        -->
+        <ZumbiBlocks2_Location>$(ZumbiBlocks2_Location)</ZumbiBlocks2_Location>
+
+        <!--
+            Task: File Validation
+            Verifies that the game and BepInEx are properly installed.
+            If the MMHOOK dependency is enabled, verifies its installation, too.
+        -->
+        <Enable_Task_FileValidation>true</Enable_Task_FileValidation>
+
+        <!--
+            Task: Plugin Install
+            Will automatically copy your plugin and assets to the BepInEx plugins folder.
+        -->
+        <Enable_Task_PluginInstall>true</Enable_Task_PluginInstall>
+
+    </PropertyGroup>
+</Project>
