@@ -1,0 +1,29 @@
+﻿<!--
+    Zumbi Blocks 0.7.0 Plugin Template Configuration
+
+    The below properties can be used to customize your project build,
+    allowing custom install locations and helpful build tasks.
+    This allows you to share your project in a way that others can customize themselves.
+-->
+<Project>
+    <PropertyGroup>
+
+        <!--
+            Set this property to your Zumbi Blocks 0.7.0 installation directory.
+        -->
+        <ZumbiBlocks_Location>$(ZumbiBlocks_Location)</ZumbiBlocks_Location>
+
+        <!--
+            Task: File Validation
+            Verifies that the game and BepInEx are properly installed.
+        -->
+        <Enable_Task_FileValidation>true</Enable_Task_FileValidation>
+
+        <!--
+            Task: Plugin Install
+            Will automatically copy your plugin and assets to the BepInEx plugins folder.
+        -->
+        <Enable_Task_PluginInstall>true</Enable_Task_PluginInstall>
+
+    </PropertyGroup>
+</Project>
