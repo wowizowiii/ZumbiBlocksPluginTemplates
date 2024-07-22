@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
-using UnityEngine;
 
-namespace ExamplePlugin;
+namespace ExamplePlugin.Patches;
 
 [HarmonyPatch(typeof(sc_gamecontrol))]
 public static class sc_gamecontrolPatch
