@@ -39,7 +39,7 @@
     </PropertyGroup>
 
 
-    <!-- Base references for all target frameworks -->
+    <!-- Base references -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile" PrivateAssets="all"/>
         <PackageReference Include="UnityEngine.Modules" Version="2021.3.43" IncludeAssets="compile" PrivateAssets="all"/>
