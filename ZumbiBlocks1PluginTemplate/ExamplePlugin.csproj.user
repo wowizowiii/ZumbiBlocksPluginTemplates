@@ -10,6 +10,9 @@
 
         <!--
             Set this property to your Zumbi Blocks 0.7.0 installation directory.
+
+            Optionally, set an environment variable named ZumbiBlocks_Location to your
+            game's install location, and never have to worry about this property again!
         -->
         <ZumbiBlocks_Location>$(ZumbiBlocks_Location)</ZumbiBlocks_Location>
 

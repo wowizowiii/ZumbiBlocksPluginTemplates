@@ -11,15 +11,17 @@
         <!--
             Custom Zumbi Blocks 2 install locations go here:
             Installed Steam on another drive? Have a depot download?
-            If so, this property is for you!
+            Maybe you're using the itch.io version? If so, this property is for you!
             Set this property to your Zumbi Blocks 2 installation directory.
+
+            Optionally, set an environment variable named ZumbiBlocks2_Location to your
+            game's install location, and never have to worry about this property again!
         -->
         <ZumbiBlocks2_Location>$(ZumbiBlocks2_Location)</ZumbiBlocks2_Location>
 
         <!--
             Task: File Validation
             Verifies that the game and BepInEx are properly installed.
-            If the MMHOOK dependency is enabled, verifies its installation, too.
         -->
         <Enable_Task_FileValidation>true</Enable_Task_FileValidation>
 
