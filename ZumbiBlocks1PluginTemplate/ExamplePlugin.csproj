@@ -14,8 +14,7 @@
         <AssemblyVersion>0.1.0</AssemblyVersion>
         <!-- Know what you're doing and need more customization? Here you go! -->
         <LangVersion>10</LangVersion>
-        <TargetFramework>net472</TargetFramework>
-        <IsPackable>false</IsPackable>
+        <TargetFramework>net35</TargetFramework>
         <RestoreAdditionalProjectSources>
             https://api.nuget.org/v3/index.json;
             https://nuget.bepinex.dev/v3/index.json
@@ -36,34 +35,30 @@
     </PropertyGroup>
 
 
-    <!-- Base references for all target frameworks -->
+    <!-- Base references -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile" PrivateAssets="all"/>
         <PackageReference Include="UnityEngine.Modules" Version="4.2.0" IncludeAssets="compile" PrivateAssets="all"/>
-    </ItemGroup>
-
-    <!-- Additional reference for the .NET Framework -->
-    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" IncludeAssets="compile" PrivateAssets="all"/>
     </ItemGroup>
 
     <!-- Project references -->
     <ItemGroup>
-        <Reference Include="Assembly-UnityScript.dll">
+        <Reference Include="Assembly-UnityScript">
             <HintPath>$(ZumbiBlocks_Location)\ZumbiBlocks_Data\Managed\Assembly-UnityScript.dll</HintPath>
         </Reference>
     </ItemGroup>
 
     <!-- Access assets in the assets folder -->
-    <ItemGroup Condition="Exists('$(ProjectDir)assets')">
-        <Folder Include="assets"/>
-        <ProjectAssets Include="$(ProjectDir)assets\**"/>
+    <ItemGroup Condition="Exists('$(ProjectDir)Assets')">
+        <Folder Include="Assets"/>
+        <ProjectAssets Include="$(ProjectDir)Assets\**"/>
     </ItemGroup>
 
     <!-- Embed resources in the resources folder -->
-    <ItemGroup Condition="Exists('$(ProjectDir)resources')">
-        <Folder Include="resources"/>
-        <EmbeddedResource Include="$(ProjectDir)resources\**"/>
+    <ItemGroup Condition="Exists('$(ProjectDir)Resources')">
+        <Folder Include="Resources"/>
+        <EmbeddedResource Include="$(ProjectDir)Resources\**"/>
     </ItemGroup>
 
 
@@ -86,12 +81,12 @@
         <!-- If the BepInEx directory is missing, throw an error -->
         <Error
             Condition="!Exists('$(ZumbiBlocks_Location)\BepInEx')"
-            Text="Could not locate BepInEx installation. Please download BepInEx from its repository: https://github.com/BepInEx/BepInEx/releases"
+            Text="Could not locate BepInEx installation. Please download BepInEx 5 from its repository: https://github.com/BepInEx/BepInEx/releases"
         />
         <!-- If the BepInEx core assembly is missing, throw an error -->
         <Error
-            Condition="!Exists('$(ZumbiBlocks_Location)\BepInEx\core\BepInEx.dll')"
-            Text="BepInEx installation is corrupted. Please re-download BepInEx from its repository: https://github.com/BepInEx/BepInEx/releases"
+            Condition="!Exists('$(ZumbiBlocks_Location)\BepInEx\core\BepInEx.Preloader.dll')"
+            Text="BepInEx installation is corrupted. Please re-download BepInEx 5 from its repository: https://github.com/BepInEx/BepInEx/releases"
         />
     </Target>
 
@@ -108,9 +103,9 @@
         />
         <!-- Copy project assets to plugin's assets directory -->
         <Copy
-            Condition="Exists('$(ProjectDir)assets')"
+            Condition="Exists('$(ProjectDir)Assets')"
             SourceFiles="@(ProjectAssets)"
-            DestinationFolder="$(ZumbiBlocks_Location)\BepInEx\plugins\$(AssemblyName)\assets\%(RecursiveDir)"
+            DestinationFolder="$(ZumbiBlocks_Location)\BepInEx\plugins\$(AssemblyName)\Assets\%(RecursiveDir)"
             SkipUnchangedFiles="true"
         />
     </Target>
