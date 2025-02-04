@@ -103,7 +103,8 @@ If modding Zumbi Blocks 2 and your Steam library is not on the C: drive, this is
 When done customizing your plugin base, click on `Build` in your IDE.  
 If the task is enabled, your plugin will automatically be installed. Open the game and test it out!
 
-When ready to publish, don't forget to [add a license](https://choosealicense.com/)! This is very important in the open source community.
+When ready to publish, don't forget to [add a license](https://choosealicense.com/)! This is very important in the open source community.  
+Additionally, a `.gitignore` file has been included for you to use. Simply move it to the root directory of your project.
 
 ### Assets and Resources
 
