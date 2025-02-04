@@ -13,9 +13,8 @@
         <RootNamespace>ExamplePlugin</RootNamespace>
         <AssemblyVersion>0.1.0</AssemblyVersion>
         <!-- Know what you're doing and need more customization? Here you go! -->
-        <LangVersion>10</LangVersion>
+        <LangVersion>12</LangVersion>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <IsPackable>false</IsPackable>
         <RestoreAdditionalProjectSources>
             https://api.nuget.org/v3/index.json;
             https://nuget.bepinex.dev/v3/index.json
@@ -33,10 +32,7 @@
         <!-- Default Steam install location -->
         <DefaultSteamDir>C:\Program Files (x86)\Steam\steamapps\common\Zumbi Blocks 2 Open Alpha</DefaultSteamDir>
         <!-- If no custom install location has been set, fallback to default Steam install location -->
-        <ZumbiBlocks2_Location
-            Condition="('$(ZumbiBlocks2_Location)' == '' Or !Exists('$(ZumbiBlocks2_Location)')) And Exists('$(DefaultSteamDir)')"
-        >$(DefaultSteamDir)
-        </ZumbiBlocks2_Location>
+        <ZumbiBlocks2_Location Condition="('$(ZumbiBlocks2_Location)' == '' Or !Exists('$(ZumbiBlocks2_Location)')) And Exists('$(DefaultSteamDir)')">$(DefaultSteamDir)</ZumbiBlocks2_Location>
         <!-- If the config file failed to load, disable everything -->
         <Enable_Task_FileValidation Condition="'$(Enable_Task_FileValidation)' == ''">false</Enable_Task_FileValidation>
         <Enable_Task_PluginInstall Condition="'$(Enable_Task_PluginInstall)' == ''">false</Enable_Task_PluginInstall>
@@ -46,31 +42,26 @@
     <!-- Base references for all target frameworks -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile" PrivateAssets="all"/>
-        <PackageReference Include="UnityEngine.Modules" Version="2020.3.48" IncludeAssets="compile" PrivateAssets="all"/>
-    </ItemGroup>
-
-    <!-- Additional reference for the .NET Framework -->
-    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
-        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" IncludeAssets="compile" PrivateAssets="all"/>
+        <PackageReference Include="UnityEngine.Modules" Version="2021.3.43" IncludeAssets="compile" PrivateAssets="all"/>
     </ItemGroup>
 
     <!-- Project references -->
     <ItemGroup>
-        <Reference Include="Assembly-CSharp.dll">
+        <Reference Include="Assembly-CSharp">
             <HintPath>$(ZumbiBlocks2_Location)\ZumbiBlocks2_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
     </ItemGroup>
 
     <!-- Access assets in the assets folder -->
-    <ItemGroup Condition="Exists('$(ProjectDir)assets')">
-        <Folder Include="assets"/>
-        <ProjectAssets Include="$(ProjectDir)assets\**"/>
+    <ItemGroup Condition="Exists('$(ProjectDir)Assets')">
+        <Folder Include="Assets"/>
+        <ProjectAssets Include="$(ProjectDir)Assets\**"/>
     </ItemGroup>
 
     <!-- Embed resources in the resources folder -->
-    <ItemGroup Condition="Exists('$(ProjectDir)resources')">
-        <Folder Include="resources"/>
-        <EmbeddedResource Include="$(ProjectDir)resources\**"/>
+    <ItemGroup Condition="Exists('$(ProjectDir)Resources')">
+        <Folder Include="Resources"/>
+        <EmbeddedResource Include="$(ProjectDir)Resources\**"/>
     </ItemGroup>
 
 
@@ -93,12 +84,12 @@
         <!-- If the BepInEx directory is missing, throw an error -->
         <Error
             Condition="!Exists('$(ZumbiBlocks2_Location)\BepInEx')"
-            Text="Could not locate BepInEx installation. Please download BepInEx from its repository: https://github.com/BepInEx/BepInEx/releases"
+            Text="Could not locate BepInEx installation. Please download BepInEx 5 from its repository: https://github.com/BepInEx/BepInEx/releases"
         />
         <!-- If the BepInEx core assembly is missing, throw an error -->
         <Error
-            Condition="!Exists('$(ZumbiBlocks2_Location)\BepInEx\core\BepInEx.dll')"
-            Text="BepInEx installation is corrupted. Please re-download BepInEx from its repository: https://github.com/BepInEx/BepInEx/releases"
+            Condition="!Exists('$(ZumbiBlocks2_Location)\BepInEx\core\BepInEx.Preloader.dll')"
+            Text="BepInEx installation is corrupted. Please re-download BepInEx 5 from its repository: https://github.com/BepInEx/BepInEx/releases"
         />
     </Target>
 
@@ -115,9 +106,9 @@
         />
         <!-- Copy project assets to plugin's assets directory -->
         <Copy
-            Condition="Exists('$(ProjectDir)assets')"
+            Condition="Exists('$(ProjectDir)Assets')"
             SourceFiles="@(ProjectAssets)"
-            DestinationFolder="$(ZumbiBlocks2_Location)\BepInEx\plugins\$(AssemblyName)\assets\%(RecursiveDir)"
+            DestinationFolder="$(ZumbiBlocks2_Location)\BepInEx\plugins\$(AssemblyName)\Assets\%(RecursiveDir)"
             SkipUnchangedFiles="true"
         />
     </Target>
