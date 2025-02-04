@@ -13,7 +13,7 @@
         <RootNamespace>ExamplePlugin</RootNamespace>
         <AssemblyVersion>0.1.0</AssemblyVersion>
         <!-- Know what you're doing and need more customization? Here you go! -->
-        <LangVersion>10</LangVersion>
+        <LangVersion>12</LangVersion>
         <TargetFramework>net35</TargetFramework>
         <RestoreAdditionalProjectSources>
             https://api.nuget.org/v3/index.json;
