@@ -18,15 +18,14 @@ Some configuration will be needed for Zumbi Blocks 1.
 
 - [Zumbi Blocks 1](https://zumbiblocks.yolasite.com/) or [Zumbi Blocks 2](https://store.steampowered.com/app/1941780/Zumbi_Blocks_2_Open_Alpha/)
 - [BepInEx 5](https://github.com/BepInEx/BepInEx/releases)
-- [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or [newer](https://dotnet.microsoft.com/en-us/download)
-- [.NET Framework 4.6.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net462) or [newer](https://dotnet.microsoft.com/en-us/download/dotnet-framework)
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or [newer](https://dotnet.microsoft.com/en-us/download)
+- [.NET Framework 3.5 Development Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022) if modding Zumbi Blocks 1
 - .NET IDE of choice
 
 > [!NOTE]
 > **Using [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/)?**
 > 
-> The **.NET Desktop Development** workload includes `.NET 8.0 SDK` and `.NET Framework 4.7.2`.  
-> This means you do not need to install `.NET 6.0 SDK` or `.NET Framework 4.6.2`.
+> The **.NET Desktop Development** workload automatically includes `.NET 9.0 SDK` and `.NET 8.0 SDK`.
 
 ## Getting Started
 
@@ -43,7 +42,7 @@ Installing BepInEx is incredibly easy and won't take much time.
 
 First, open the folder where you extracted Zumbi Blocks 1. This will be named `ZumbiBlocks` for the 32-bit version, and `ZumbiBlocks-64bit` for the 64-bit version.
 
-Next, extract the BepInEx ZIP file. This will result in three files and one folder: `changelog.txt`, `doorstop_config.ini`, `winhttp.dll`, and a `BepInEx` folder.
+Next, extract the BepInEx ZIP file. This will result in four files and one folder: `.doorstop_version`, `changelog.txt`, `doorstop_config.ini`, `winhttp.dll`, and a `BepInEx` folder.
 
 Drag everything into the game folder. The `BepInEx` folder should now be next to the `ZumbiBlocks.exe` file and the `ZumbiBlocks_Data` folder.
 
@@ -60,7 +59,7 @@ Save the file, then run the game again.
 In your Steam client, right-click **Zumbi Blocks 2**, hover over `Manage`, then click on `Browse local files`.  
 This will open the game folder in Windows Explorer. If it didn't appear on screen, click on the Explorer icon in the taskbar or tab over to it.
 
-Next, extract the BepInEx ZIP file. This will result in three files and one folder: `changelog.txt`, `doorstop_config.ini`, `winhttp.dll`, and a `BepInEx` folder.
+Next, extract the BepInEx ZIP file. This will result in four files and one folder: `.doorstop_version`, `changelog.txt`, `doorstop_config.ini`, `winhttp.dll`, and a `BepInEx` folder.
 
 Drag everything into the `Zumbi Blocks 2 Open Alpha` folder. The `BepInEx` folder should now be next to the `MonoBleedingEdge` and `ZumbiBlocks2_Data` folders.
 
@@ -74,19 +73,21 @@ Much like BepInEx, installing the template is very simple.
 First, [clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or [download the source code from Releases](https://github.com/nyawoi/ZumbiBlocksPluginTemplates/releases). If downloaded, extract the ZIP file.  
 Be sure to move the folder somewhere safe where you know it won't be deleted or overwritten.
 
-Next, open the folder. Inside, you'll see two scripts: `install.sh` and `uninstall.sh`. Run `install.sh` to add the template to your list of .NET templates, and `uninstall.sh` to remove it.
+Next, open the folder. Inside, you'll see two scripts: `install.bat` and `uninstall.bat`. Run `install.bat` to add the template to your list of .NET templates, and `uninstall.bat` to remove it.
 
 That's it! The template is now installed and ready to create projects.
 
 ### Creating a project
 
 Launch your .NET IDE of choice and open the list of available templates.  
-If using Visual Studio Community 2022, this is done by clicking on "Create a new project" on the right.
+If using Visual Studio Community 2022, this is done by clicking on "Create a new project" on the right.  
+If using Rider, this is done by clicking on "New Solution" near the top middle.
 
 If the template isn't immediately visible, use the search bar to filter the results.  
-Visual Studio Community 2022 should automatically display the template at the top of the list after installing it, then will list it on the left, under "Recent project templates".
+Visual Studio Community 2022 should automatically display the templates at the top of the list after you install them, and will then list them on the left, under "Recent project templates".  
+Rider will have the templates listed in the "Custom Template" section, beneath the default templates.
 
-Select the template and start customizing it. Give it a name, select the framework you'd like to use (the default is fine), and list yourself as the author.
+Select the template for the game you'd like to mod, and start customizing it. Give it a name and list yourself as the author.
 
 Create the project and you're done!  
 The template takes care of all references for you, so you can focus on what really matters, rather than mess with project configuration.
@@ -106,9 +107,9 @@ When ready to publish, don't forget to [add a license](https://choosealicense.co
 
 ### Assets and Resources
 
-If your plugin has assets, create a folder named `assets` and it'll automatically be copied over to your mod folder when building your project.
+If your plugin has assets, create a folder named `Assets` and it'll automatically be copied over to your mod folder when building your project.
 
-Likewise, if you have embedded resources, create a folder named `resources` and those will automatically be embedded when building.
+Likewise, if you have embedded resources, create a folder named `Resources` and those will automatically be embedded when building.
 
 ---
 
