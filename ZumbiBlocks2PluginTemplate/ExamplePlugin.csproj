@@ -14,7 +14,7 @@
         <AssemblyVersion>0.1.0</AssemblyVersion>
         <!-- Know what you're doing and need more customization? Here you go! -->
         <LangVersion>12</LangVersion>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RestoreAdditionalProjectSources>
             https://api.nuget.org/v3/index.json;
             https://nuget.bepinex.dev/v3/index.json
@@ -39,16 +39,17 @@
     </PropertyGroup>
 
 
-    <!-- Base references -->
+    <!-- NuGet Packages -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile" PrivateAssets="all"/>
         <PackageReference Include="UnityEngine.Modules" Version="2021.3.43" IncludeAssets="compile" PrivateAssets="all"/>
     </ItemGroup>
 
-    <!-- Project references -->
+    <!-- Game Assemblies -->
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
             <HintPath>$(ZumbiBlocks2_Location)\ZumbiBlocks2_Data\Managed\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
         </Reference>
     </ItemGroup>
 
