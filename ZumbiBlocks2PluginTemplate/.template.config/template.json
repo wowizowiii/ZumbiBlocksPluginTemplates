@@ -39,6 +39,24 @@
 			"description": "Your name",
 			"replaces": "AuthorName",
 			"defaultValue": "AuthorName"
+		},
+		"Framework": {
+			"type": "parameter",
+			"datatype": "choice",
+			"description": "The target framework for the project",
+			"replaces": "netstandard2.1",
+			"defaultValue": "netstandard2.1",
+			"enableQuotelessLiterals": true,
+			"choices": [
+				{
+					"choice": "netstandard2.1",
+					"description": ".NET Standard 2.1"
+				},
+				{
+					"choice": "net472",
+					"description": ".NET Framework 4.7.2"
+				}
+			]
 		}
 	}
 }
