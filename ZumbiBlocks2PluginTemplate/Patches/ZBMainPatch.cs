@@ -9,6 +9,6 @@ public static class ZBMainPatch
     [HarmonyPatch(nameof(ZBMain.Start))]
     public static void ExamplePatch(ZBMain __instance)
     {
-        ExamplePlugin.Logger.LogInfo($"Current game version is {__instance.gameVersion}");
+        ExamplePlugin.Logger.LogInfo($"Current game version is {__instance.version.Number}");
     }
 }
