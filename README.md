@@ -87,7 +87,8 @@ If the template isn't immediately visible, use the search bar to filter the resu
 Visual Studio Community 2022 should automatically display the templates at the top of the list after you install them, and will then list them on the left, under "Recent project templates".  
 Rider will have the templates listed in the "Custom Template" section, beneath the default templates.
 
-Select the template for the game you'd like to mod, and start customizing it. Give it a name and list yourself as the author.
+Select the template for the game you'd like to mod, and start customizing it. Give it a name and list yourself as the author.  
+If modding Zumbi Blocks 2, you'll also have the option to choose a framework. The default (`.NET Standard 2.1`) will be enough for 99% of mods. If, however, you need access to Mono-compatible, Windows-specific APIs, `.NET Framework 4.7.2` is provided for compatibility.
 
 Create the project and you're done!  
 The template takes care of all references for you, so you can focus on what really matters, rather than mess with project configuration.
